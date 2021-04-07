@@ -1,6 +1,7 @@
+import { inject, injectable } from 'tsyringe';
+
 import { UsersRepository } from '@modules/account/infra/typeorm/repositories/UsersRepository';
 import { deleteFile } from '@utils/file';
-import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
   user_id: string;

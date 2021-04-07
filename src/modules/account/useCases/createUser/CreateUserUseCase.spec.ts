@@ -1,5 +1,4 @@
 import { UsersRepositoryInMemory } from '@modules/account/repositories/in-memory/UsersRepositoryInMemory';
-
 import { AppError } from '@shared/errors/AppError';
 
 import { CreateUserUseCase } from './CreateUserUseCase';

@@ -1,8 +1,8 @@
-import { ICreateUserDTO } from '@modules/account/dtos/ICreateUserDTO';
-import { IUsersRepository } from '@modules/account/repositories/IUsersRepository';
 import { hash } from 'bcryptjs';
 import { inject, injectable } from 'tsyringe';
 
+import { ICreateUserDTO } from '@modules/account/dtos/ICreateUserDTO';
+import { IUsersRepository } from '@modules/account/repositories/IUsersRepository';
 import { AppError } from '@shared/errors/AppError';
 
 @injectable()
