@@ -5,6 +5,7 @@ class Car {
   name: string;
   description: string;
   daily_rate: number;
+  available: boolean;
   license_plate: string;
   fine_amount: number;
   brand: string;
@@ -14,6 +15,8 @@ class Car {
   constructor() {
     if (!this.id) {
       this.id = v4();
+      this.available = true;
+      this.created_at = new Date();
     }
   }
 }
