@@ -4,9 +4,9 @@ import { Car } from '@modules/car/infra/typeorm/entities/Car';
 import { ICarsRepository } from '@modules/car/repositories/ICarsRepository';
 
 interface IRequest {
-  category_id?: string
-  brand?: string
-  name?: string
+  category_id?: string;
+  brand?: string;
+  name?: string;
 }
 
 @injectable()
@@ -16,7 +16,11 @@ class ListAvailableCarsUseCase {
     private carsRepository: ICarsRepository,
   ) {}
   async execute({ name, brand, category_id }: IRequest): Promise<Car[]> {
-    const cars = await this.carsRepository.findAvailable(name, brand, category_id);
+    const cars = await this.carsRepository.findAvailable(
+      name,
+      brand,
+      category_id,
+    );
 
     return cars;
   }

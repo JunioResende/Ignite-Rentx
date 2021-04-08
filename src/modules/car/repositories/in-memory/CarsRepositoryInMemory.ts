@@ -4,7 +4,7 @@ import { Car } from '@modules/car/infra/typeorm/entities/Car';
 import { ICarsRepository } from '../ICarsRepository';
 
 class CarsRepositoryInMemory implements ICarsRepository {
-  cars: Car[] = []
+  cars: Car[] = [];
 
   async create({
     name,
@@ -35,16 +35,20 @@ class CarsRepositoryInMemory implements ICarsRepository {
   }
 
   async findByLicensePlate(license_plate: string): Promise<Car> {
-    return this.cars.find((car) => car.license_plate === license_plate);
+    return this.cars.find(car => car.license_plate === license_plate);
   }
 
-  async findAvailable(brand?: string, category_id?: string, name?: string): Promise<Car[]> {
-    const all = this.cars.filter((car) => {
+  async findAvailable(
+    brand?: string,
+    category_id?: string,
+    name?: string,
+  ): Promise<Car[]> {
+    const all = this.cars.filter(car => {
       if (
-        car.available === true
-        || ((brand && car.brand === brand)
-        || (category_id && car.category_id === category_id)
-        || (name && car.name === name))
+        car.available === true ||
+        (brand && car.brand === brand) ||
+        (category_id && car.category_id === category_id) ||
+        (name && car.name === name)
       ) {
         return car;
       }
@@ -55,7 +59,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
   }
 
   async findById(id: string): Promise<Car> {
-    return this.cars.find((car) => car.id === id);
+    return this.cars.find(car => car.id === id);
   }
 }
 

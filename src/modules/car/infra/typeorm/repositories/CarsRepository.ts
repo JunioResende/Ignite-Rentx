@@ -6,7 +6,7 @@ import { ICarsRepository } from '@modules/car/repositories/ICarsRepository';
 import { Car } from '../entities/Car';
 
 class CarsRepository implements ICarsRepository {
-  private repository: Repository<Car>
+  private repository: Repository<Car>;
 
   constructor() {
     this.repository = getRepository(Car);
@@ -45,7 +45,11 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  async findAvailable(name?: string, brand?: string, category_id?: string): Promise<Car[]> {
+  async findAvailable(
+    name?: string,
+    brand?: string,
+    category_id?: string,
+  ): Promise<Car[]> {
     const carsQuery = await this.repository
       .createQueryBuilder('c')
       .where('available = :available', { available: true });
