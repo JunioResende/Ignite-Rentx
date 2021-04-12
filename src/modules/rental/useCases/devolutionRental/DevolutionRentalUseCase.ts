@@ -23,7 +23,7 @@ class DevolutionRentalUseCase {
   ) {}
   async execute({ id, user_id }: IRequest): Promise<Rental> {
     const rental = await this.rentalsRepository.findById(id);
-    const car = await this.carsRepository.findById(id);
+    const car = await this.carsRepository.findById(rental.car_id);
     const minimum_daily = 1;
 
     if (!rental) {
